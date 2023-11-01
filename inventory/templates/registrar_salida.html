@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registrar Salida</title>
+</head>
+<body>
+    <h1>Registrar Salida</h1>
+    <form method="post" action="{% url 'registrar_salida' %}">
+        {% csrf_token %}
+        {{ form.codigo.label_tag }} {{ form.codigo }}
+        {{ form.cantidad.label_tag }} {{ form.cantidad }}
+        <input type="submit" value="Registrar Salida">
+    </form>
+    <a href="{% url 'consultar_inventario' %}">Consultar Inventario</a>
+</body>
+</html>

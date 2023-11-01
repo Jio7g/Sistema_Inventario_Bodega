@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Consultar Inventario</title>
+</head>
+<body>
+    <h1>Consultar Inventario</h1>
+    <table>
+        <tr>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Cantidad Existente</th>
+            <th>Precio de Compra</th>
+            <th>Precio de Venta</th>
+        </tr>
+        {% for producto in productos %}
+            <tr>
+                <td>{{ producto.codigo }}</td>
+                <td>{{ producto.nombre }}</td>
+                <td>{{ producto.cantidad_existente }}</td>
+                <td>{{ producto.precio_compra }}</td>
+                <td>{{ producto.precio_venta }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'ingresar_producto' %}">Ingresar Producto</a>
+    <a href="{% url 'registrar_salida' %}">Registrar Salida</a>
+</body>
+</html>
