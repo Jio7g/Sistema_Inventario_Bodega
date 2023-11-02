@@ -4,6 +4,9 @@
     <title>Consultar Inventario</title>
 </head>
 <body>
+    {% extends 'base.html' %}
+
+    {% block content %}
     <h1>Consultar Inventario</h1>
     <table>
         <tr>
@@ -25,5 +28,7 @@
     </table>
     <a href="{% url 'ingresar_producto' %}">Ingresar Producto</a>
     <a href="{% url 'registrar_salida' %}">Registrar Salida</a>
+
+    {% endblock %}
 </body>
 </html>

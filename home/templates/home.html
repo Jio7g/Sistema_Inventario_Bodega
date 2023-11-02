@@ -4,7 +4,9 @@
     <title>Página de Inicio</title>
 </head>
 <body>
+    {% extends 'base.html' %}
+    
     <h1>Bienvenido a la Página de Inicio</h1>
-    <a href="{% url 'consultar_inventario' %}">Ir al Inventario</a>
+    <a href="{% url 'login' %}">Iniciar Sesion</a>
 </body>
 </html>
