@@ -6,7 +6,11 @@
 <body>
     {% extends 'base.html' %}
     
-    <h1>Bienvenido a la Página de Inicio</h1>
-    <a href="{% url 'login' %}">Iniciar Sesion</a>
+    {% block content %}
+    <main class="container mt-4">
+        <section class="bodega-info">
+            <h2>Sisterma para contabilizar Inventario de Bodega</h2>
+        </section>
+    {% endblock %}
 </body>
 </html>

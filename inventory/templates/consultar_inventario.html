@@ -8,26 +8,101 @@
 
     {% block content %}
     <h1>Consultar Inventario</h1>
-    <table>
-        <tr>
-            <th>Código</th>
-            <th>Nombre</th>
-            <th>Cantidad Existente</th>
-            <th>Precio de Compra</th>
-            <th>Precio de Venta</th>
-        </tr>
-        {% for producto in productos %}
-            <tr>
-                <td>{{ producto.codigo }}</td>
-                <td>{{ producto.nombre }}</td>
-                <td>{{ producto.cantidad_existente }}</td>
-                <td>{{ producto.precio_compra }}</td>
-                <td>{{ producto.precio_venta }}</td>
-            </tr>
-        {% endfor %}
-    </table>
-    <a href="{% url 'ingresar_producto' %}">Ingresar Producto</a>
-    <a href="{% url 'registrar_salida' %}">Registrar Salida</a>
+    <br><br>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a href="{% url 'ingresar_producto' %}">
+            <button type="button" class="btn btn-primary">Ingresar Producto</button>
+        </a>
+
+        <a href="{% url 'registrar_salida' %}">
+            <button type="button" class="btn btn-warning">Registrar Salida</button>
+        </a>  
+      </div>
+     <br><br>
+     
+   <div class="search-content">    
+    <form method="get">
+        <div class="input-group mb-3">
+            <input type="text" name="q" class="form-control" placeholder="Buscar producto" value="{{ query }}">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </div>
+    </form>
+    </div>
+
+    <div class="table-responsive"> <!-- Agrega esta clase para hacer tablas responsivas en Bootstrap -->
+        <table class="table">
+            <thead class="text-center">
+                <tr>
+                    <th>Código</th>
+                    <th>Nombre</th>
+                    <th>Cantidad Existente</th>
+                    <th>Precio de Compra</th>
+                    <th>Precio de Venta</th>
+                </tr>
+            </thead>
+        <div id="search-results">
+            <tbody class="text-center">
+                {% for producto in productos %}
+                <tr>
+                    <td>{{ producto.codigo }}</td>
+                    <td>{{ producto.nombre }}</td>
+                    <td>{{ producto.cantidad_existente }}</td>
+                    <td>{{ producto.precio_compra }}</td>
+                    <td>{{ producto.precio_venta }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </div>
+        </table>
+    </div>
+
+    <div class="pagination">
+        <ul class="pagination justify-content-center">
+            {% if productos.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page=1">&laquo; Primera</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ productos.previous_page_number }}">Anterior</a>
+                </li>
+            {% endif %}
+    
+            <li class="page-item disabled">
+                <span class="page-link">Página {{ productos.number }} de {{ productos.paginator.num_pages }}</span>
+            </li>
+    
+            {% if productos.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ productos.next_page_number }}">Siguiente</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ productos.paginator.num_pages }}">Última &raquo;</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Captura el evento de cambio en el campo de búsqueda
+            $('#id_q').on('input', function () {
+                var query = $(this).val();
+    
+                // Realiza una solicitud AJAX al servidor para buscar productos
+                $.ajax({
+                    url: '/inventory/consultar_inventario/',  // Reemplaza '/tu_ruta_de_busqueda/' con la URL de tu vista de búsqueda
+                    data: {
+                        'q': query
+                    },
+                    success: function (data) {
+                        // Actualiza el contenido de 'search-results' con los resultados de la búsqueda
+                        $('#search-results').html(data);
+                    }
+                });
+            });
+        });
+    </script>
 
     {% endblock %}
 </body>

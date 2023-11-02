@@ -2,15 +2,53 @@
 <html>
 <head>
     <title>Registrar Salida</title>
+    <style>
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="submit"] {
+            margin-top: 20px;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Registrar Salida</h1>
-    <form method="post" action="{% url 'registrar_salida' %}">
-        {% csrf_token %}
-        {{ form.codigo.label_tag }} {{ form.codigo }}
-        {{ form.cantidad.label_tag }} {{ form.cantidad }}
-        <input type="submit" value="Registrar Salida">
-    </form>
-    <a href="{% url 'consultar_inventario' %}">Consultar Inventario</a>
+    <!-- extiende de base.html -->
+    {% extends 'base.html' %}
+    {% block content %}
+    <div class="form-container">
+        <h1>Registrar Salida</h1>
+        <form method="post" action="{% url 'registrar_salida' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.codigo.label_tag }}
+                {{ form.codigo }}
+            </div>
+            <div class="form-group">
+                {{ form.cantidad.label_tag }}
+                {{ form.cantidad }}
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Registrar Salida">
+            </div>
+            {% if error_message %}
+            <p class="error-message">{{ error_message }}</p>
+            {% endif %}
+        </form>
+        <p><a href="{% url 'consultar_inventario' %}">Consultar Inventario</a></p>
+    </div>
+
+    {% endblock %}
 </body>
 </html>
