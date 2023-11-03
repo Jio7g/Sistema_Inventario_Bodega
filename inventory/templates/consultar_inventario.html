@@ -7,7 +7,7 @@
     {% extends 'base.html' %}
 
     {% block content %}
-    <h1>Consultar Inventario</h1>
+    <h1 class="text-center">Consultar Inventario</h1>
     <br><br>
 
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -50,10 +50,13 @@
                     <td>{{ producto.cantidad_existente }}</td>
                     <td>{{ producto.precio_compra }}</td>
                     <td>{{ producto.precio_venta }}</td>
+                    <td>
+                        <a href="{% url 'editar_producto' producto.id %}" data-toggle="modal" data-target="#editModal{{ producto.codigo }}">Editar</a>
+                        <a href="{% url 'eliminar_producto' producto.id %}" data-toggle="modal" data-target="#deleteModal{{ producto.codigo }}">Eliminar</a>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
-        </div>
         </table>
     </div>
 

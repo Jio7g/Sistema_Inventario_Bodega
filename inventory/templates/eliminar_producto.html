@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirmar Eliminación</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block content %}
+    <div class="container text-center">
+        <h1 class="display-4 mb-4">¡Atención!</h1>
+        <p class="lead">Estás a punto de eliminar el siguiente producto:</p>
+        
+        <div class="card mb-4">
+            <div class="card-body">
+                <h3 class="card-title">{{ producto.nombre }}</h3>
+                <p class="card-text">Código: {{ producto.codigo }}</p>
+                <p class="card-text">Cantidad Existente: {{ producto.cantidad_existente }}</p>
+                <p class="card-text">Precio de Compra: {{ producto.precio_compra }}</p>
+                <p class="card-text">Precio de Venta: {{ producto.precio_venta }}</p>
+            </div>
+        </div>
+
+        <p class="lead">¿Estás seguro de que deseas eliminar este producto?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Sí, Eliminar</button>
+            <a href="{% url 'consultar_inventario' %}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+    {% endblock %}
+</body>
+</html>
