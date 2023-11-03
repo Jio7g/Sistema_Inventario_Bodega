@@ -1,0 +1,8 @@
+/* En tu archivo base.css */
+.custom-navbar-bg {
+    background: linear-gradient(90deg, #007BFF, #00FFA1); /* Cambia los colores y el ángulo según tus preferencias */
+    background-clip: text; /* Esto es opcional y se usa para recortar el fondo al texto */
+    -webkit-background-clip: text; /* Propiedad específica de WebKit para navegadores como Chrome */
+    color: transparent; /* Para hacer que el texto sea transparente en el gradiente */
+  }
+  

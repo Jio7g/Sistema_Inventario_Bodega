@@ -1,0 +1,74 @@
+/* Estilos para login.html */
+
+/* Contenedor principal */
+.container {
+    margin-top: 50px;
+    text-align: center; /* Centra el contenido del contenedor */
+  }
+  
+  /* Formulario de inicio de sesión */
+  .login-form {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centra el formulario en el contenedor */
+    position: relative; /* Para posicionar el logo */
+  }
+  
+  /* Logo circular */
+  .login-logo {
+    max-width: 100px;
+    margin: 0 auto;
+    display: block;
+    border-radius: 50%; /* Forma circular */
+    overflow: hidden; /* Oculta partes cuadradas de la imagen */
+  }
+  
+  /* Títulos */
+  .login-heading {
+    font-size: 24px;
+  }
+  
+  .login-subheading {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  /* Etiquetas y campos del formulario */
+  .form-group label {
+    font-weight: bold;
+  }
+  
+  .form-group input[type="text"],
+  .form-group input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+  }
+  
+  /* Botón de inicio de sesión */
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+/* Estilos generales */
+.body-login {
+    background: linear-gradient(to bottom, #000000, #100493); /* Gradiente lineal vertical de arriba a abajo */
+  }
+  
+  /* Otros estilos según tus necesidades */
+  

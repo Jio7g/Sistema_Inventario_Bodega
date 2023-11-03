@@ -11,7 +11,7 @@ db.sqlite3
 # Directorios generados por Django
 __pycache__/
 media/
-static/
+
 
 # Entorno virtual
 .env
