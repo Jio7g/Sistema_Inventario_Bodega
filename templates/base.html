@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% block title %}PracticaDjango{% endblock %}</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
     <!-- Agregar el enlace al archivo CSS de Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <!-- jQuery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
@@ -15,10 +18,10 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light border-3 border-bottom border-dark">
+        <nav class="navbar navbar-expand-lg navbar-light border-3 border-bottom border-dark bg-white" >
 
             <div class="container">
-                <a class="navbar-brand" href="/" >InvtSistem</a>
+                <a class="navbar-brand" href="/">InvtSistem </a><i class="fa-solid fa-boxes-stacked"></i>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -30,10 +33,13 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'consultar_inventario' %}">Inventario</a>
                             </li>
+                        </ul>                           
+                        <ul class="navbar-nav ms-auto"> <!-- ms-auto para empujar los elementos a la derecha -->
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'logout' %}">Cerrar Sesión</a>
                             </li>
                         </ul>
+                        
                     {% else %}
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
@@ -46,17 +52,30 @@
         </nav>
     </header>
 
-    <main class="container mt-4">
+    <main class="container mt-4 ">
         <!-- Aquí se mostrará el contenido principal de tus páginas -->
         {% block content %}{% endblock %}
     </main>
 
-    <br><br>
-    <footer class="bg-light text-center py-3">
-        <!-- Aquí puedes incluir el pie de página de tu sitio -->
-        <p>Derechos Reservados &copy; {{ year }} JioCode - InvtSistem</p>
-    </footer>
 
+    
+    <footer class="text-center py-3 " 
+    
+        style="position: absolute;
+        bottom: 0;
+        width: 100%;
+        background: linear-gradient(to bottom, #100493,#000000 );
+        color: #fff;
+        padding: 10px;">
+
+        <!-- Aquí puedes incluir el pie de página de tu sitio -->
+        <div class="footer-content ">
+            <p> Derechos Reservados &copy; {{ year }} <a href="https://github.com/Jio7g">JioCode</a> - <a href="https://github.com/Jio7g/Sistema_Inventario_Bodega">InvtSistem</a></p>
+            <ul class="social-icons">
+                <a href="https://github.com/Jio7g"><i class="fab fa-github"></i></a>
+            </ul>
+        </div>
+    </footer>
     <!-- Agregar los scripts de Bootstrap al final del documento -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
 </body>

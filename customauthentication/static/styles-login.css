@@ -1,5 +1,4 @@
 /* Estilos para login.html */
-
 /* Contenedor principal */
 .container {
     margin-top: 50px;
@@ -65,10 +64,19 @@
     background-color: #0056b3;
   }
   
+
+/* Establece los márgenes y rellenos en cero para el cuerpo y el HTML */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
 /* Estilos generales */
 .body-login {
-    background: linear-gradient(to bottom, #000000, #100493); /* Gradiente lineal vertical de arriba a abajo */
-  }
-  
-  /* Otros estilos según tus necesidades */
+  background: linear-gradient(to bottom, #000000, #100493); /* Gradiente lineal vertical de arriba a abajo */
+  height: 100%; /* Asegura que el fondo se extienda al 100% de la altura de la página */
+}
+
   
